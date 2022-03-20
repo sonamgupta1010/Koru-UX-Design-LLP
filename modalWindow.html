@@ -1,0 +1,475 @@
+
+    <div class="modal-header" style="border-top:0 none;border-bottom:0 none;">
+        <h3 class="modal-title"></h3>
+    </div>
+    <div class="modal-body">
+        <style>
+
+            .action{
+                font-weight: 400;
+            }
+            a{
+                color:#29a0ff;
+            }
+            .activeBlue{
+                color: #2a5caa;
+            }
+            .modal-dialog{
+                width:100%!important;
+            }
+        
+        
+        
+            .arrow {
+                border: solid #29a0ff!important;
+                border-width: 0 2px 2px 0!important;
+                display: inline-block!important;
+                padding: 3.7px!important;
+                margin-left: 5px;
+                margin-inline-end: 2px;
+            }
+            .arrow :hover{
+                text-decoration: none!important;
+            }
+            .up {
+                transform: rotate(-135deg);
+                -webkit-transform: rotate(-135deg);
+                margin-block-end: -2px;
+            }
+            .down {
+                transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+                margin-block-end: 2px;
+        
+            }
+        
+        
+        
+        
+            [data-title] {
+                position: relative;
+        
+                white-space: nowrap;
+        
+            }
+            [data-title]:hover::before {
+                content: attr(data-title);
+                position: absolute;
+                bottom: 30px;
+                padding: 10px;
+                background: #f4f4f4;
+                opacity: 1;
+                z-index: 1;
+                /*display: flex;*/
+                transition: all .4s ease;
+                color: rgba(36,44,48,0.8);
+                font-size: 14px;
+                white-space: nowrap;
+                border: 1px solid white;
+                margin-left: -20px;
+            }
+        
+            .alignid{
+                text-align: unset;
+            }
+            .errorNotification {
+                margin-left: 4%;
+                color: #e96b6c;
+                font-family: 'FuturaStd-Medium';
+            }
+        
+            .adminErrorMessages {
+                padding-top: 1%;
+                padding-left: 3%;
+                margin-bottom: 0%;
+                color: #e96b6c;
+                font-family: 'FuturaStd-Light';
+                font-size: 15px;
+            }
+        
+            .successNotification {
+                margin-left: 4%;
+                color: #95C861;
+                font-family: 'FuturaStd-Medium';
+                text-align: center;
+            }
+        
+            .hideUsers {
+                float: right;
+                font-family: FuturaStd-Medium;
+                font-size: 14px;
+            }
+        
+            table, tr, th {
+                vertical-align: top;
+                padding-top: 2%;
+            }
+            .table thead tr th
+            {vertical-align: top!important;
+            }
+        
+            /*.ng-invalid.ng-dirty {*/
+            /*    border-color: red;*/
+            /*    outline-color: red;*/
+            /*}*/
+        
+            /*.ng-valid.ng-dirty {*/
+            /*    border-color: green;*/
+            /*    outline-color: green;*/
+            /*}*/
+        
+            .addUserForm {
+                margin-left: 1%;
+                margin-top: -3%;
+            }
+        
+            .addUserCheckBox {
+                margin-left: 3%;
+                margin-top: 2%;
+            }
+            .signupHeading1 {
+                font-family: "FuturaStd-Medium";
+                font-size: 30px;
+                text-align: center;
+                margin-top: 30px;
+            }
+        
+            .labelAdminCheckbox {
+                height: 26px;
+                background-repeat: no-repeat;
+                background-position: 0 0;
+                vertical-align: middle;
+                cursor: pointer;
+                margin-top: 10px;
+                font-size: 16px;
+                font-family: "FuturaStd-Book";
+                color: #29a0ff;
+                line-height: 2.2;
+                font-weight: 300;
+                text-decoration: none;
+            }
+        
+            .adminFormInputs {
+                width: 45%;
+                height: 40px;
+                display: inline-block;
+                margin-left: 3%;
+                margin-top: 3%;
+                font-family: FuturaStd-Heavy;
+            }
+        
+            .addProject {
+                padding: 1%;
+                padding-left: 2%;
+                padding-right: 2%;
+                font-size: 13px;
+                font-family: FuturaStd-Light;
+                font-weight: bolder;
+                float: right;
+                margin-top: -4%;
+                margin-right: 5%;
+            }
+        
+            #snackbar1 {
+                visibility: hidden;
+                min-width: 250px;
+                margin-left: -125px;
+                background-color: #ccc;
+                color: #000;
+                font-family: FuturaStd-book;
+                text-align: center;
+                border-radius: 2px;
+                padding: 16px;
+                position: fixed;
+                z-index: 1;
+                border-radius: 4px!important;
+        
+                left: 45%;
+                top:118px;
+                font-size: 17px;
+            }
+        
+            #snackbar1.show {
+                visibility: visible;
+                -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+                animation: fadein 0.5s, fadeout 0.5s 2.5s;
+                top: 50%;
+            }
+            #snackbar3.show {
+                visibility: visible;
+                -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+                animation: fadein 0.5s, fadeout 0.5s 2.5s;
+                top: 50%;
+            }
+        
+            #snackbar2 {
+                visibility: hidden;
+                min-width: 250px;
+                margin-left: -125px;
+                background-color: #ccc;
+                color: #000;
+                font-family: FuturaStd-book;
+                text-align: center;
+                border-radius: 2px;
+                padding: 16px;
+                position: fixed;
+                z-index: 1;
+                left: 45%;
+                top:118px;
+                font-size: 17px;
+                border-radius: 4px!important;
+        
+            }
+        
+            #snackbar2.show {
+                visibility: visible;
+                -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+                animation: fadein 0.5s, fadeout 0.5s 2.5s;
+                top: 50%;
+            }
+            #snackbar3 {
+                visibility: hidden;
+                min-width: 250px;
+                margin-left: -125px;
+                background-color: #ccc;
+                color: #000;
+                font-family: FuturaStd-book;
+                text-align: center;
+                border-radius: 2px;
+                padding: 16px;
+                position: fixed;
+                z-index: 1;
+                left: 45%;
+                top:118px;
+                font-size: 17px;
+                border-radius: 4px!important;
+        
+            }
+        
+            #snackbar4.show {
+                visibility: visible;
+                -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+                animation: fadein 0.5s, fadeout 0.5s 2.5s;
+                top: 50%;
+            }
+        
+            #snackbar5 {
+                visibility: hidden;
+                min-width: 250px;
+                margin-left: -125px;
+                background-color: #ccc;
+                color: #000;
+                font-family: FuturaStd-book;
+                text-align: center;
+                border-radius: 2px;
+                padding: 16px;
+                position: fixed;
+                z-index: 1;
+                left: 45%;
+                top:118px;
+                font-size: 17px;
+                border-radius: 4px!important;
+        
+            }
+        
+            #snackbar5.show {
+                visibility: visible;
+                -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+                animation: fadein 0.5s, fadeout 0.5s 2.5s;
+                top: 50%;
+            }
+            #snackbar4 {
+                visibility: hidden;
+                min-width: 250px;
+                margin-left: -125px;
+                background-color: #ccc;
+                color: #000;
+                font-family: FuturaStd-book;
+                text-align: center;
+                border-radius: 2px;
+                padding: 16px;
+                position: fixed;
+                z-index: 1;
+                left: 45%;
+                top:118px;
+                font-size: 17px;
+                border-radius: 4px!important;
+        
+            }
+        
+            #snackbar4.show {
+                visibility: visible;
+                -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+                animation: fadein 0.5s, fadeout 0.5s 2.5s;
+                top: 50%;
+            }
+            #snackbar6 {
+                visibility: hidden;
+                min-width: 250px;
+                margin-left: -125px;
+                background-color: #ccc;
+                color: #000;
+                font-family: FuturaStd-book;
+                text-align: center;
+                border-radius: 2px;
+                padding: 16px;
+                position: fixed;
+                z-index: 1;
+                left: 45%;
+                top:118px;
+                font-size: 17px;
+                border-radius: 4px!important;
+        
+            }
+        
+            #snackbar6.show {
+                visibility: visible;
+                -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+                animation: fadein 0.5s, fadeout 0.5s 2.5s;
+                top: 50%;
+            }
+            [data-title]:hover::before {
+                content: attr(data-title);
+                position: absolute;
+                bottom: 30px;
+                right: 0px;
+                border: 1px solid white;
+                padding: 10px;
+                opacity: 1;
+                z-index: 1;
+                transition: all .4s ease;
+                color: rgba(36, 44, 48, 0.8);
+                font-size: 14px;
+                white-space: nowrap;
+                background: #f4f4f4;
+                /*box-shadow: 0 0 4px 0 #e6e6e6;*/
+                /*border-radius: 1px;*/
+            }
+            .indent-1 {float: left;
+                display: inline-block;
+                width: 100%;
+                margin-left: 3%;
+                margin-top: 2%;
+            }
+            tbody {
+  height: 10em;
+  overflow: scroll;
+}
+            .indent-1 section {width: 45%; float: left;}
+        </style>
+        <body >
+        <div class="container">
+            <div class = "row">
+                <div class= "col-md-7">
+                    <div style="padding-top: 10px;padding-bottom: 10px;margin: 15px;font-size: 16px;margin-left: 0px;">
+                    Find: <input type="text" ng-model="searchCriteria" />
+
+                        <button class='btn btn-dark' style="float:right;background-color: gray;" ng-click="Delete()">Delete</button> </td>
+                        </div>
+                        <div class="table-responsive"style="width: 100%;">
+                            <table class="table table-bordered table-hover" id="table" style="margin-top: unset;">
+                                <thead style="background-color: #ebf9fc; line-height: 1.1 !important;">
+                                    <tr style="color: black">
+                                            <th style="line-height: 1.2">
+                                                <input type="checkbox" ng-model="IsAllChecked" ng-change="CheckUncheckAll()" />
+
+
+                                                <a href="" ng-click="sorted('id')"  style="font-family: FuturaStd-Book;font-size: 15px;font-weight: 400;text-decoration: none;color:#29a0ff"> ID</a>
+                                                    <span ng-click="sorted('company_id')" ng-class="getSortClass('id')"></span>
+                                            </th>
+                                                <th style="font-size: 15px;font-family: FuturaStd-Book;font-weight: 400;line-height: 1.2" >
+                                                    <a  href="" ng-click="sorted('name')"  style="white-space: nowrap;text-decoration: none;color:#29a0ff">Name</a>
+                                                    <span ng-click="sorted('name')" ng-class="getSortClass('name')"></span>
+                                                    
+                                                </th>
+                                                <th style="font-size: 15px;font-family: FuturaStd-Book;font-weight: 400;line-height: 1.2" >
+                                                    <a  href="" ng-click="sorted('description')"  style="white-space: nowrap;text-decoration: none;color:#29a0ff">Description</a>
+                                                    <span ng-click="sorted('description')" ng-class="getSortClass('description')"></span>
+                                                    
+                                                </th>
+                                                <th style="font-size: 15px;font-family: FuturaStd-Book;font-weight: 400;line-height: 1.2" >
+                                                    <a  href="" ng-click="sorted('webReference')"  style="white-space: nowrap;text-decoration: none;color:#29a0ff">Web Reference</a>
+                                                    <span ng-click="sorted('webReference')" ng-class="getSortClass('webReference')"></span>
+                                                    
+                                                </th>
+                                        </tr>
+                                </thead>
+        
+            <tbody>
+                <tr id="parentTable{{employees.id}}"
+                    data-ng-repeat="employees in employees | filter:searchCriteria |orderBy:sortColumn:reverseSort">
+        
+                    <td style="vertical-align: middle">
+                        <input type="checkbox"  name="id" ng-model="employees.Selected" ng-change="CheckUncheckHeader()"/>
+                        {{employees.id}}</td>
+                    <td style="vertical-align: middle">{{employees.name}}</td>
+                    <td style="vertical-align: middle">{{employees.description}}</td>
+                    <td style="vertical-align: middle">{{employees.webReference}}</td>
+                </tr>
+                
+            </tbody>
+            </table>
+            
+        </div>
+    </div>
+    <div class= "col-md-5">
+        <div >
+        <form name= "employeeForm" class="form-horizontal" ng-submit="submitForm()" role="form" >
+            <div class="form-group" ng-class="{'has-error': employeeForm.name.$touched && employeeForm.name.$error.required , 'has-success': employeeForm.name.$valid }">
+                <label for="name" class="col-sm-4 control-label" style="text-align:left">Name</label>
+                <div class="col-sm-8">
+                    <input type="text" id="name" class="form-control" ng-model="employee.name" ng-required="true" />
+
+                </div>
+                <div class="col-sm-3">
+                    <span class="help-block" ng-show="employeeForm.name.$touched && employeeForm.name.$error.required">Please enter First Name.</span>
+
+                </div>
+    
+            </div>
+            <div class="form-group" ng-class="{'has-error': employeeForm.description.$touched && employeeForm.description.$error.required , 'has-success': employeeForm.description.$valid }">
+                <label for="description" class="col-sm-4 control-label" style="text-align:left">Description</label>
+                <div class="col-sm-8">
+                    <input type="text" id="description" class="form-control" ng-model="employee.description" ng-required="true" />
+
+                </div>
+                <div class="col-sm-3">
+                    <span class="help-block" ng-show="employeeForm.description.$touched && employeeForm.description.$error.required">Please enter Description.</span>
+
+                </div>
+            </div>
+            <div class="form-group" ng-class="{'has-error': employeeForm.webRef.$touched && employeeForm.webRef.$error.required , 'has-success': employeeForm.webRef.$valid }">
+                <label for="webReference" class="col-sm-4 control-label" style="text-align:left">Web Ref.</label>
+                <div class="col-sm-8">
+                    <input type="text" id="webReference" class="form-control" ng-model="employee.webReference" />
+
+                </div>
+                <div class="col-sm-3">
+                    <span class="help-block" ng-show="employeeForm.webReference.$touched && employeeForm.webReference.$error.required">Please enter Web Reference</span>
+
+                </div>
+            </div>
+            
+            
+           
+            
+            <input type="submit" value="Add" style="float:right" class="btn btn-primary col-sm-offset-3" /> 
+        </div>
+            
+        </form>
+    </div>
+    
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="$close()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="$dismiss('cancel')">Cancel</button>
+</div>
+</div>
+</body>
+<!-- </script> -->
+
+        
+        
+        
+        
+   
